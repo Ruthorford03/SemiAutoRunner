@@ -1,0 +1,57 @@
+# ============================================================
+# SemiAutoRunner - Git Ignore 規則
+# 嚴格禁止上傳個人隱私、商業機密、Excel報告、波形影像與螢幕控制程式
+# ============================================================
+
+# 1. 商業機密：Excel 測試報告與設定檔（excel 不要上傳）
+*.xlsx
+*.xlsm
+*.xls
+*.csv
+
+# 2. 示波器螢幕操作之控制程式（示波器螢幕操作的控制程式不要上傳）
+eScope_viewer.py
+auto_test_gui.py
+啟動_AutoTest_GUI.bat
+escope_config.json
+dpo4054_address.cache
+
+# 3. 測試波形截圖、影像與多媒體（包含內部量測波形數據）
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.mp4
+AI實作影片/
+ripple_temp*.png
+
+# 4. 本地儀器日誌與快取
+*.log
+*.cache
+*.out
+Oscilloscope_Test_set_files/*.log
+Oscilloscope_Test_set_files/*.cache
+Oscilloscope_Test_set_files/*.bat
+
+# 5. 一次性探索與除錯暫存腳本
+add_dynamic_load.py
+clean_and_add_dynamic_load.py
+explore_config.py
+explore_config_pd.py
+explore_ripple.py
+fix_target.py
+update_paths.py
+ripple_test_main.py
+generate_config.py
+main.py
+
+# 6. Python 環境與建置快取
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+.python-version
