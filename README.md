@@ -45,7 +45,7 @@ SemiAutoRunner
 ├── ai_agent_bridge.py          # AI 代理人操作橋接器 (視覺擷取、自主決策 API)
 ├── AutoTest_Config_Manual.md   # 設定檔完整填寫說明書
 ├── SemiAutoRunner_MECE_SOP.md  # 系統標準作業規範 (SOP)
-├── VR_POL_AI_Autonomous_Testing_Proposal.md # 專題匯報講稿與 AI 自主量測演進提案
+├── VR_POL_AI_Autonomous_Testing_Proposal.md # 專題匯報講稿與 AI 自適應量測演進提案
 ├── pyproject.toml              # 專案相依性配置
 └── 啟動_*.bat                  # 各測項一鍵啟動批次檔
 ```
@@ -123,7 +123,7 @@ ai_bridge.confirm_step()
 
 ## 📖 說明文件 (Documentation)
 
-- [VR/POL 測試專題匯報與 AI 自主量測演進提案 (VR_POL_AI_Autonomous_Testing_Proposal.md)](./VR_POL_AI_Autonomous_Testing_Proposal.md)：提供 10 分鐘簡報大綱、現場實戰逐字講稿、MECE 異常自癒架構與高階主管 Q&A 實戰攻防劇本。
+- [VR/POL 測試專題匯報與 AI 自適應量測演進提案 (VR_POL_AI_Autonomous_Testing_Proposal.md)](./VR_POL_AI_Autonomous_Testing_Proposal.md)：提供 10 分鐘簡報大綱、現場實戰逐字講稿、MECE 異常自適應處方架構、API 快速驗證試水溫路徑與高階主管 Q&A 實戰攻防劇本。
 - [AutoTest_Config 填寫說明書 (AutoTest_Config_Manual.md)](./AutoTest_Config_Manual.md)：詳細介紹每張工作表的填寫規範、公式寫法與除錯指南。
 - [SemiAutoRunner MECE 作業標準 (SemiAutoRunner_MECE_SOP.md)](./SemiAutoRunner_MECE_SOP.md)：詳細定義執行環境、資料流、安全防護與回檢作業標準。
 
