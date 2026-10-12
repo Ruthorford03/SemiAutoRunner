@@ -152,9 +152,14 @@ class AutoTestEngine:
                 else: # 預設抓取歷史波峰最大 MAX 值
                     val = float(self.scpi.query(f'MEASUrement:MEAS{meas_idx}:MAXimum?'))
                 vpp_vals.append(val)
-            except Exception:
-                vpp_vals.append(0.0)
-            print(f"    - 取回 MEAS{meas_idx} 統計結果 ({stat}) : {vpp_vals[-1]:.4f} (若為mV: {vpp_vals[-1] * 1000:.2f})")
+            except Exception as err:
+                print(f"    ❌ [ERROR] 取回 MEAS{meas_idx} 統計結果失敗: {err}")
+                vpp_vals.append(None)
+            
+            if vpp_vals[-1] is not None:
+                print(f"    - 取回 MEAS{meas_idx} 統計結果 ({stat}) : {vpp_vals[-1]:.4f} (若為mV: {vpp_vals[-1] * 1000:.2f})")
+            else:
+                print(f"    - 取回 MEAS{meas_idx} 統計結果 ({stat}) : [無效/讀取失敗]")
         
         # 優先嘗試透過 HTTP 截取螢幕 (速度最快且不佔用示波器 I/O)
         import requests
@@ -208,6 +213,10 @@ class AutoTestEngine:
         for i, cell in enumerate(vpp_cells):
             cell = cell.strip()
             if i < len(vpp_vals) and cell:
+                if vpp_vals[i] is None:
+                    print(f"    ⚠️ [WARN] 儲存格 {cell} 讀值無效 (通訊中斷或逾時)，填入 'MEAS_ERR' 提示覆核，嚴禁回填偽數據！")
+                    ws.range(cell).value = "MEAS_ERR"
+                    continue
                 if meas_types and i < len(meas_types):
                     m_type = meas_types[i].upper()
                     if "FREQ" in m_type:
